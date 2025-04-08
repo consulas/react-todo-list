@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-Script: create_patch.py
-Usage: python3 create_patch.py /path/to/repo output.patch [--exclude folder1 file2 ...]
+Script: convert_todo_format.py
+Usage: python3 convert_todo_format.py /path/to/todo output.patch [--exclude folder1 file2 ...]
 Description:
-  Create a git patch comparing an existing repository to an empty repo.
+  Create a git patch comparing an existing todolist to an empty todolist.
   It excludes any files/folders specified via --exclude.
+  Adds new todo list items to empty todolist.
 """
 
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import argparse
 import subprocess
-from util import file_to_hex
+from scripts.convert_todo_format_to_hex import file_to_hex
 
 def validate_repo_path(repo_path: str) -> str:
     """
@@ -26,7 +27,7 @@ def validate_repo_path(repo_path: str) -> str:
 
 def create_patch(repo_path: str, output_patch: str, commit_hash: str, exclude: list):
     """
-    Creates a git patch comparing the current repository to the specified commit_hash
+    Creates a git patch comparing the current todolist to the specified commit_hash
     Excludes specified files/folders and writes the patch to the output file.
     """
 
@@ -65,11 +66,11 @@ def main():
 
     # Create the patch file
     create_patch(repo_path, patch_path, args.commit_hash, args.exclude)
-    print(f"Patch file created at: {patch_path}")
+    print(f"Patch file with new todolist items created at: {patch_path}")
 
     # Create a hex file
     file_to_hex(patch_path, hex_path)
-    print(f"Hex file created at: {hex_path}")
+    print(f"Hex file of todolist difference created at: {hex_path}")
 
 if __name__ == "__main__":
     main()

@@ -4,3 +4,4 @@ npm-debug.log
 dist/
 /temp/
 **/__pycache__/
+package-lock.json

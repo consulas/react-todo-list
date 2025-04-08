@@ -1,6 +1,6 @@
 # Express.js + React Todo App
 
-A simple, barebones Todo application built with Express.js for the backend API and React for the frontend, bundled with Webpack and using Nodemon for development.
+A simple, barebones Todo application built with Express.js for the backend API and React for the frontend, bundled with Webpack and using Nodemon for development. This project will help users familiarize themselves with the basics of state management in React. Once the user has familiarized themselves with the basics of React, we recommend taking this project to the next level by implementing TypeScript. 
 
 <img width="780" alt="image" src="https://github.com/user-attachments/assets/aecfb7ce-d843-47de-bc1a-9b448d8f66d5" />
 
